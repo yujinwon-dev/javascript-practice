@@ -80,3 +80,49 @@ const article1 = new Article(1);
 console.log(article1.publisher);  // undefined
 console.log(Article.publisher);  // DC
 Article.printPublisher();
+
+// 상속 & 다양성
+class Shape {
+  constructor(width, height, color) {
+    this.width = width;
+    this.height = height;
+    this.color = color;
+  }
+
+  draw() {
+    console.log(`drawing ${this.color} color of`);
+  }
+
+  getArea() {
+    return this.width * this.height;
+  }
+}
+
+// extends를 통해 상속하면 부모 클래스의 필드, 메서드 사용 가능
+class Rectangle extends Shape {}
+class Triangle extends Shape {
+  // 메서드 오버라이딩 가능
+  draw() {
+    // 오버라이딩 시 부모 클래스에 있는 같은 이름의 메서드는 호출되지 않음
+    // 호출하고 싶을 경우 super 키워드 사용
+    super.draw();
+    console.log('^_^');
+  }
+  getArea() {
+    return (this.width * this.height) / 2;
+  }
+
+}
+
+const rectangle = new Rectangle(20, 20, 'blue');
+rectangle.draw();
+console.log(rectangle.getArea());
+const triangle = new Triangle(20, 20, 'red');
+triangle.draw();
+console.log(triangle.getArea());
+
+
+// Class checking
+console.log(rectangle instanceof Shape);
+console.log(rectangle instanceof Rectangle);
+console.log(rectangle instanceof Object); // true (js의 모든 오브젝트는 Object를 상속)
