@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button type="button" onclick="alert('click')">클릭</button>
+  <button type="button" onclick="sayHello()">클릭2</button>
+  <button type="button" id="btn">클릭3</button>
+  <button type="button" id="btn2">클릭4</button>
+  <script>
+    function sayHello() {
+      alert("hello");
+    }
+
+    const btn = document.getElementById('btn');
+    btn.onclick = sayHello;  // 괄호가 없어야 함 (반환값이 아니라 함수를 할당)
+
+    const btn2 = document.getElementById('btn2');
+    // btn2.addEventListener('click', sayHello);
+    btn2.addEventListener('click', () => {
+      alert("hi");
+    });
+  </script>
+</body>
+</html>

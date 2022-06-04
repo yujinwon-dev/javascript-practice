@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS practice</title>
+    <style>
+      .txt-pink {
+        color: pink;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Welcome</h1>
+    <h2>World</h2>
+    <ul id="color">
+      <li id="red">Red</li>
+      <li id="blue">Blue</li>
+      <li id="green">Green</li>
+    </ul>
+    <script>
+      const color = document.getElementById('color');
+
+      color.onclick = function (e) {
+        const target = e.target;
+        console.log('here');
+        if (target.tagName !== 'LI') return;
+        target.classList.toggle('txt-pink');
+      }
+    </script>
+  </body>
+</html>
