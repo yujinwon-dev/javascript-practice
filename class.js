@@ -3,11 +3,12 @@
 class Person {
   // constructor
   constructor(name, age) {
+    // 속성 (field)
     this.name = name;
     this.age = age;
     
   }
-  // methods
+  // 행동 (method)
   speak() {
     console.log(`${this.name} hello!`);
   }
